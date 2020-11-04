@@ -8,6 +8,7 @@ services:
       dockerfile: eureka-server.dockerfile
     image: eureka-server:master
     container_name: eureka-master
+    entrypoint: java -jar -Dspring.profiles.active=master eureka-server.jar
     ports:
       - 8001:8001
 
@@ -19,8 +20,11 @@ services:
       dockerfile: eureka-server.dockerfile
     image: eureka-server:replica1
     container_name: eureka-replica1
+    entrypoint: java -jar -Dspring.profiles.active=replica1 eureka-server.jar
     ports:
       - 8002
+    depends_on:
+      - eureka-master
 
   eureka-replica2:
     build:
@@ -30,8 +34,11 @@ services:
       dockerfile: eureka-server.dockerfile
     image: eureka-server:replica2
     container_name: eureka-replica2
+    entrypoint: java -jar -Dspring.profiles.active=replica2 eureka-server.jar
     ports:
       - 8003
+    depends_on:
+      - eureka-master
 
   eureka-client:
     build:
@@ -41,3 +48,7 @@ services:
     container_name: eureka-client
     ports:
       - 8102
+    depends_on:
+      - eureka-master
+      - eureka-replica1
+      - eureka-replica2

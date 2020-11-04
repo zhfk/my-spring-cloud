@@ -48,4 +48,34 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>master</id>
+			<properties>
+				<profiles.active>master</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>replica1</id>
+			<properties>
+				<profiles.active>replica1</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>replica2</id>
+			<properties>
+				<profiles.active>replica2</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+
 </project>
