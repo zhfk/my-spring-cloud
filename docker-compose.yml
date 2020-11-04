@@ -22,7 +22,7 @@ services:
     container_name: eureka-replica1
     entrypoint: java -jar -Dspring.profiles.active=replica1 eureka-server.jar
     ports:
-      - 8002
+      - 8002:8002
     depends_on:
       - eureka-master
 
@@ -36,7 +36,7 @@ services:
     container_name: eureka-replica2
     entrypoint: java -jar -Dspring.profiles.active=replica2 eureka-server.jar
     ports:
-      - 8003
+      - 8003:8003
     depends_on:
       - eureka-master
 
@@ -47,7 +47,7 @@ services:
     image: eureka-client:latest
     container_name: eureka-client
     ports:
-      - 8102
+      - 8102:8102
     depends_on:
       - eureka-master
       - eureka-replica1
