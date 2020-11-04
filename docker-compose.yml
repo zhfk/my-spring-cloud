@@ -3,22 +3,15 @@ services:
   eureka-master:
     build:
       context: ./
-      args:
-        - profile=master
       dockerfile: eureka-server.dockerfile
-    image: eureka-server:master
+    image: eureka-server:latest
     container_name: eureka-master
     entrypoint: java -jar -Dspring.profiles.active=master eureka-server.jar
     ports:
       - 8001:8001
 
   eureka-replica1:
-    build:
-      context: ./
-      args:
-        - profile=replica1
-      dockerfile: eureka-server.dockerfile
-    image: eureka-server:replica1
+    image: eureka-server:latest
     container_name: eureka-replica1
     entrypoint: java -jar -Dspring.profiles.active=replica1 eureka-server.jar
     ports:
@@ -27,12 +20,7 @@ services:
       - eureka-master
 
   eureka-replica2:
-    build:
-      context: ./
-      args:
-        - profile=replica2
-      dockerfile: eureka-server.dockerfile
-    image: eureka-server:replica2
+    image: eureka-server:latest
     container_name: eureka-replica2
     entrypoint: java -jar -Dspring.profiles.active=replica2 eureka-server.jar
     ports:

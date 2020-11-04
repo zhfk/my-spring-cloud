@@ -1,4 +1,12 @@
-FROM openjdk:8
-COPY eureka-client-0.0.1-SNAPSHOT.jar /root
+FROM openjdk:8-alpine
+RUN echo "http://mirrors.ustc.edu.cn/alpine/latest-stable/main" > /etc/apk/repositories && \
+    echo "http://mirrors.ustc.edu.cn/alpine/latest-stable/community" >> /etc/apk/repositories
+RUN apk update && \
+    apk --no-cache add tzdata && \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone && \
+    apk del tzdata && \
+    apk add --no-cache curl busybox-extras
+COPY eureka-client-0.0.1-SNAPSHOT.jar /root/eureka-client.jar
 WORKDIR /root
-ENTRYPOINT java $JAVA_OPTS -jar eureka-client-0.0.1-SNAPSHOT.jar
+ENTRYPOINT java -jar eureka-client.jar

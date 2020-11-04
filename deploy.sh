@@ -1,4 +1,4 @@
-mvn clean && mvn compile && mvn package
+# mvn clean && mvn compile && mvn package
 SERVER_DIR='root@121.196.26.240:~/spring-cloud-jars'
 echo "上传 eureka-client jar ->"
 scp eureka-client/target/eureka-client-0.0.1-SNAPSHOT.jar ${SERVER_DIR}
