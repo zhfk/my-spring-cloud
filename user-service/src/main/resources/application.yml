@@ -1,8 +1,8 @@
 server:
-  port: 8102
+  port: 8201
 spring:
   application:
-    name: eureka-client
+    name: user-service
 eureka:
   client:
     register-with-eureka: true
