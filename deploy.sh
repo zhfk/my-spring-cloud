@@ -1,4 +1,4 @@
-# mvn clean && mvn compile && mvn package
+# cd common/ && mvn clean && mvn compile && mvn package && mvn install && cd ../ && mvn clean && mvn compile && mvn package
 
 server='root@121.196.26.240'
 dir='/root/spring-cloud-jars'
@@ -7,13 +7,13 @@ SERVER_DIR="${server}:${dir}"
 echo "开始编译 --->"
 ./mvnw clean && ./mvnw compile && ./mvnw package
 
-#echo "上传jars --->"
-#for model in $(ls)
-#do
-#  if [ -d "${model}" ] && [ -d "${model}/target" ]; then
-#    scp ${model}/target/*.jar ${SERVER_DIR}
-#  fi
-#done
+echo "上传jars --->"
+for model in $(ls)
+do
+  if [ -d "${model}" ] && [ -d "${model}/target" ]; then
+    scp ${model}/target/*.jar ${SERVER_DIR}
+  fi
+done
 
 echo "清理文件 --->"
 ./mvnw clean

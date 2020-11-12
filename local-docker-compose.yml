@@ -3,7 +3,7 @@ services:
   eureka-master:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: local.Dockerfile
     image: springcloud:latest
     container_name: eureka-master
     entrypoint: java -jar -Dspring.profiles.active=master eureka-server.jar
