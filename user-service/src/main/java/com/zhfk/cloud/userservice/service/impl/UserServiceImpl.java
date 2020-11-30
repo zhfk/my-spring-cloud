@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Long id) {
+        log.info("Origin UserService => getDefaultUser");
         User user = new User();
         user.setName("Mike");
         return user;

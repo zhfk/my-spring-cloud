@@ -16,16 +16,16 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/create")
-    public CommonResult<Integer> create(@RequestBody User user) {
+    public CommonResult create(@RequestBody User user) {
         int id = userService.create(user);
-        return new CommonResult<>("操作成功", id);
+        return new CommonResult( "操作成功", id);
     }
 
     @GetMapping("/{id}")
-    public CommonResult<User> getUser(@PathVariable Long id) {
+    public CommonResult getUser(@PathVariable Long id) {
         User user = userService.getUser(id);
         log.info("根据id获取用户信息，用户名称为：{}", user.getName());
-        return new CommonResult<>(user);
+        return new CommonResult(user);
     }
 
 }

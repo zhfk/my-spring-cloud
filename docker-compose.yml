@@ -28,14 +28,14 @@ services:
   #    depends_on:
   #      - eureka-master
 
-#  eureka-client:
-#    image: springcloud:latest
-#    container_name: eureka-client
-#    entrypoint: java -jar eureka-client.jar
-#    ports:
-#      - 8102:8102
-#    depends_on:
-#      - eureka-master
+  #  eureka-client:
+  #    image: springcloud:latest
+  #    container_name: eureka-client
+  #    entrypoint: java -jar eureka-client.jar
+  #    ports:
+  #      - 8102:8102
+  #    depends_on:
+  #      - eureka-master
 
   user-service:
     image: springcloud:latest

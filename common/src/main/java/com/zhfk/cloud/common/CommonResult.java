@@ -1,10 +1,10 @@
 package com.zhfk.cloud.common;
 
-public class CommonResult<T> {
+public class CommonResult {
 
     public int code = 20000;
     public String message = "操作成功";
-    private T data = null;
+    private Object data = null;
 
     public CommonResult() {
     }
@@ -13,16 +13,16 @@ public class CommonResult<T> {
         this.message = message;
     }
 
-    public CommonResult(String message, T data) {
+    public CommonResult(String message, Object data) {
         this.message = message;
         this.data = data;
     }
 
-    public CommonResult(T data) {
+    public CommonResult(Object data) {
         this.data = data;
     }
 
-    public CommonResult(int code, String message, T data) {
+    public CommonResult(int code, String message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;

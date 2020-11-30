@@ -1,4 +1,4 @@
-# mvn clean && mvn compile && mvn package
+# cd common/ && mvn clean && mvn compile && mvn package && mvn install && cd ../ && mvn clean && mvn compile && mvn package
 
 server='root@121.196.26.240'
 dir='/root/spring-cloud-jars'
