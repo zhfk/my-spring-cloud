@@ -1,10 +1,13 @@
 package com.zhfk.cloud.common;
 
-public class CommonResult {
+import lombok.ToString;
+
+@ToString
+public class CommonResult<T> {
 
     public int code = 20000;
     public String message = "操作成功";
-    private Object data = null;
+    private T data = null;
 
     public CommonResult() {
     }
@@ -13,16 +16,16 @@ public class CommonResult {
         this.message = message;
     }
 
-    public CommonResult(String message, Object data) {
+    public CommonResult(String message, T data) {
         this.message = message;
         this.data = data;
     }
 
-    public CommonResult(Object data) {
+    public CommonResult(T data) {
         this.data = data;
     }
 
-    public CommonResult(int code, String message, Object data) {
+    public CommonResult(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;

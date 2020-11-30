@@ -10,4 +10,4 @@ eureka:
     service-url:
       defaultZone: http://eureka-master:8001/eureka/
 service-url:
-  user-service: http://user-service
+  user-service: http://user-service:8201
