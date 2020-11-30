@@ -28,38 +28,47 @@ services:
   #    depends_on:
   #      - eureka-master
 
-  eureka-client:
-    image: springcloud:latest
-    container_name: eureka-client
-    entrypoint: java -jar eureka-client.jar
-    ports:
-      - 8102:8102
-    depends_on:
-      - eureka-master
+#  eureka-client:
+#    image: springcloud:latest
+#    container_name: eureka-client
+#    entrypoint: java -jar eureka-client.jar
+#    ports:
+#      - 8102:8102
+#    depends_on:
+#      - eureka-master
 
-  user-service1:
+  user-service:
     image: springcloud:latest
-    container_name: user-service1
-    entrypoint: java -classpath common-SNAPSHOT.jar -jar -Dserver.port=8201 user-service.jar
+    container_name: user-service
+    entrypoint: java -jar -Dserver.port=8201 user-service.jar
     ports:
       - 8201:8201
     depends_on:
       - eureka-master
 
-  user-service2:
-    image: springcloud:latest
-    container_name: user-service2
-    entrypoint: java -classpath common-SNAPSHOT.jar -jar -Dserver.port=8202 user-service.jar
-    ports:
-      - 8202:8202
-    depends_on:
-      - eureka-master
+#  user-service2:
+#    image: springcloud:latest
+#    container_name: user-service2
+#    entrypoint: java -classpath common-SNAPSHOT.jar -jar -Dserver.port=8202 user-service.jar
+#    ports:
+#      - 8202:8202
+#    depends_on:
+#      - eureka-master
 
-  ribbon-service:
+#  ribbon-service:
+#    image: springcloud:latest
+#    container_name: ribbon-service
+#    entrypoint: java -classpath common-SNAPSHOT.jar -jar -Dserver.port=8301 ribbon-service.jar
+#    ports:
+#      - 8301:8301
+#    depends_on:
+#      - eureka-master
+
+  hystrix-service:
     image: springcloud:latest
-    container_name: ribbon-service
-    entrypoint: java -classpath common-SNAPSHOT.jar -jar -Dserver.port=8301 ribbon-service.jar
+    container_name: hystrix-service
+    entrypoint: java -jar -Dserver.port=8401 hystrix-service.jar
     ports:
-      - 8301:8301
+      - 8401:8401
     depends_on:
       - eureka-master
