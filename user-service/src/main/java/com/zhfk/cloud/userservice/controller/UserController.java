@@ -18,7 +18,7 @@ public class UserController {
     @PostMapping("/create")
     public CommonResult<Integer> create(@RequestBody User user) {
         int id = userService.create(user);
-        return new CommonResult<>( "操作成功", id);
+        return new CommonResult<>("操作成功", id);
     }
 
     @GetMapping("/{id}")

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Override
     public int create(User user) {
-        log.info("create user => "+ user.getName());
+        log.info("create user => " + user.getName());
         return 1;
     }
 

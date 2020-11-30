@@ -5,15 +5,15 @@ dir='/root/spring-cloud-jars'
 SERVER_DIR="${server}:${dir}"
 
 echo "开始编译 --->"
-./mvnw clean && ./mvnw compile && ./mvnw package
+./mvnw clean compile package
 
-#echo "上传jars --->"
-#for model in $(ls)
-#do
-#  if [ -d "${model}" ] && [ -d "${model}/target" ]; then
-#    scp ${model}/target/*.jar ${SERVER_DIR}
-#  fi
-#done
+echo "上传jars --->"
+for model in $(ls)
+do
+  if [ -d "${model}" ] && [ -d "${model}/target" ]; then
+    scp ${model}/target/*.jar ${SERVER_DIR}
+  fi
+done
 
 echo "清理文件 --->"
 ./mvnw clean

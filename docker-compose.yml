@@ -19,14 +19,14 @@ services:
     depends_on:
       - eureka-master
 
-  eureka-replica2:
-    image: springcloud:latest
-    container_name: eureka-replica2
-    entrypoint: java -jar -Dspring.profiles.active=replica2 eureka-server.jar
-    ports:
-      - 8003:8003
-    depends_on:
-      - eureka-master
+  #  eureka-replica2:
+  #    image: springcloud:latest
+  #    container_name: eureka-replica2
+  #    entrypoint: java -jar -Dspring.profiles.active=replica2 eureka-server.jar
+  #    ports:
+  #      - 8003:8003
+  #    depends_on:
+  #      - eureka-master
 
   eureka-client:
     image: springcloud:latest

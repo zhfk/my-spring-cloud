@@ -8,7 +8,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka-master:8001/eureka/,http://eureka-replica1:8002/eureka/,http://eureka-replica2:8003/eureka/
+      defaultZone: http://eureka-master:8001/eureka/
 service-url:
   user-service: http://user-service
 
